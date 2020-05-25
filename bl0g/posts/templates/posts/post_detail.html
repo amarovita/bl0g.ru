@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load thumbnail md %}
+{% block head %}
+        <script id="dsq-count-scr" src="//bl0g-ru.disqus.com/count.js" async></script>
+{% endblock %}
+{% block contents %}
+
+
+        <!-- Title -->
+        <h1 class="mt-4">{{ post.title }}</h1>
+
+        <!-- Author -->
+        <!-- Date/Time -->
+        <div class="small">
+          <a href="#">{{ post.author.first_name|default:'' }} {{post.author.last_name|default:post.author}}</a>, {{ post.stamp }}
+<!-- a data-dusqus-identifier="{{ post.slug }}" href="#disqus_thread">Комментарии...</a -->
+        </div>
+
+        <hr>
+
+        <!-- Preview Image -->
+        {% if post.cover %}<img class="img-fluid rounded" src="{% thumbnail post.cover 750x250 crop %}" alt="{{ post.title }}">{% endif %}
+
+        <hr>
+
+        <!-- Post Content -->
+        <div class="post">
+        {# {% if post.brief %}<div class="lead">{{ post.brief|md|safe }}</div>{% endif %} #}
+        {% if post.brief %}<div class="lead">{{ post.brief_htmlsafe }}</div>{% endif %}
+        
+        {%if post.text_html %}{{ post.text_html|safe }}{% endif %}
+
+        </div>
+<script>
+        $('table').addClass('table table-bordered table-striped');
+        $('thead').addClass('thead-dark');
+</script>
+        <hr>
+
+        <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/**/
+var disqus_config = function () {
+this.page.url = 'https://bl0g.ru/post/{{ post.slug }}/';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '{{ post.slug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+/**/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://bl0g-ru.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+{% endblock %}

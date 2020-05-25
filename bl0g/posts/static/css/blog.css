@@ -1,0 +1,33 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i|Noto+Serif+SC:400,700,900|Philosopher:400,400i,700,700i&display=swap&subset=cyrillic');  
+
+body {
+  padding-top: 56px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+H1, H2, H3, H4, H5, H6 {
+  font-family: "Philosopher", "Noto Serif", serif;
+  font-weight: bold;
+  margin-bottom:2rem;
+}
+
+.post H1, 
+.post H2,
+.post H3,
+.post H4,
+.post H5,
+.post H6 {
+  margin-top:-60px;
+  padding-top:60px;
+}
+
+div.post img{
+  width:100%;
+  display:block;
+}

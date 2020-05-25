@@ -1,0 +1,47 @@
+{% extends 'main.html' %}{% load thumbnail md %}
+{% block head %}
+        <!-- script id="dsq-count-scr" src="//bl0g-ru.disqus.com/count.js" async></script -->
+{% endblock %}
+{% block contents %}
+        <h1 class="my-4">bløg.ru
+          <small>список публикаций</small>
+        </h1>
+        {% for post in object_list %}
+        <!-- Blog Post -->
+        <div class="post card mb-4">
+          {% if post.cover %}<img class="card-img-top" src="{% thumbnail post.cover 750x250 crop %}{# { post.cover.url } #}" alt="{{ post.title }}">{% endif %}
+          <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            {# <p class="card-text">{% if post.brief %}{{ post.brief|md|safe }}{% else %}{{ post.text|brief:256|striptags|md|safe }}{% endif %}</p> #}
+            <div class="card-text">{% if post.brief_html %}{{ post.brief_html|safe }}{% endif %}</div>
+            <a href="/post/{{ post.slug }}/" class="btn btn-primary"> Читать &rarr;</a>
+          </div>
+          <div class="card-footer small {% if post.published %}text-muted{% else %}text-danger{% endif %}">
+            {% if post.published %}Опубликовано{% else %}Черновик{% endif %}: <a href="#">{{ post.author.first_name|default:'' }} {{post.author.last_name|default:post.author}}</a>, {{ post.stamp }}.
+            <!-- 
+            <a data-dusqus-identifier="{{ post.slug }}" href="/post/{{ post.slug }}/#disqus_thread">Комментарии...</a>
+            <span class="disqus-comment-count" data-disqus-identifier="{{ post.slug }}">Комментарии</span>
+            -->
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- Pagination -->
+
+        {% if is_paginated %}
+        <ul class="pagination justify-content-center mb-4">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Позже &rarr;</a>
+            </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}">&larr; Раньше</a>
+            </li>
+        {% endif %}
+        </ul>
+        {% else %}
+        {% endif %}
+
+{% endblock %}

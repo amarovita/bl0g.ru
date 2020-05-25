@@ -1,0 +1,38 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{% block title %}bløg.ru{% endblock%}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/css/monokai.css' %}" rel="stylesheet">
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <script src="//cdn.jsdelivr.net/npm/mermaid@8.3.1/dist/mermaid.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      config: ["MMLorHTML.js"],
+      jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+      extensions: ["MathMenu.js", "MathZoom.js"]
+    });
+  </script>
+  <!-- Custom styles for this template -->
+  <link href="{% static '/css/blog.css' %}" rel="stylesheet">
+</head>
+
+<body>
+{% block body %}
+{% endblock %}
+</body>
+
+</html>

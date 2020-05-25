@@ -1,0 +1,10 @@
+Django==3.0.6
+django-extensions==2.2.9
+django-filer==1.7.1
+docutils==0.16
+flake8==3.8.2
+Markdown==3.2.2
+md-mermaid==0.1.0
+psycopg2-binary==2.8.5
+Pygments==2.6.1
+python-markdown-math==0.6

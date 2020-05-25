@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.vscode/
+.idea
+.ipynb__checkpoints/
+static/*
+!.gitkeep
+debug.py
+media/*
+.env
