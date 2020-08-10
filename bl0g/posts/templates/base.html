@@ -8,7 +8,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{% block title %}bløg.ru{% endblock%}</title>
+  {% block opengraph %}
+  <meta property="og:title" content="bl0g.ru">
+  <meta property="og:description" content="Простой блог на Django.">
+  <meta property="og:sitename" content="bl0g.ru">
+  <meta property="og:url" content="https://bl0g.ru/">
+  {% endblock %}
+
+  <title>{% block title %}bløg.ru{% endblock %}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
