@@ -9,7 +9,7 @@
   <meta property="og:description" content="{{ post.brief|escape }}">
   <meta property="og:sitename" content="bl0g.ru">
   <meta property="og:url" content="https://bl0g.ru/post/{{ post.slug }}/">
-  <meta property="og:image" content="{% thumbnail post.cover 250x250 crop %}">
+  <meta property="og:image" content="https://bl0g.ru{% thumbnail post.cover 250x250 crop %}">
   {% endblock %}
 
 {% block contents %}
