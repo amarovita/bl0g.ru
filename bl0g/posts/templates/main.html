@@ -1,7 +1,7 @@
 {% extends 'base.html' %}%
 {% block body %}
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-print-none">
     <div class="container">
       <a class="navbar-brand" href="/">bløg.ru</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,12 +34,12 @@
     <div class="row">
 
       <!-- Main Contents Column -->
-      <div class="col-md-8">
+      <div class="col-md-8 col-print-12">
         {% block contents %}{% endblock %}
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+      <div class="col-md-4 d-print-none">
 
 {% comment %}
         <!-- Search Widget -->
@@ -124,7 +124,7 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-dark d-print-none">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; bløg.ru 2019-2020</p>
     </div>
