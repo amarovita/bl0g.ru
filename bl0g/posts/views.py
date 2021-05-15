@@ -7,7 +7,7 @@ from posts.models import Post
 
 class HomePage(ListView):
     model = Post
-    paginate_by = 5
+    paginate_by = 10
     def get_queryset(self):
         qs = super().get_queryset()
         if self.request.user.is_authenticated:
