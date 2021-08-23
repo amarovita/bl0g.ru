@@ -12,6 +12,9 @@ _md = Markdown(
         'codehilite',
         # 'mdx_math',
         'pymdownx.arithmatex',
+        'pymdownx.tabbed',
+        'pymdownx.emoji',
+        'pymdownx.magiclink',
         'toc'
     ]
 )
