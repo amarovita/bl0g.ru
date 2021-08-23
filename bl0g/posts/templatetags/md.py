@@ -10,7 +10,8 @@ _md = Markdown(
         'extra',
         'admonition',
         'codehilite',
-        'mdx_math',
+        # 'mdx_math',
+        'pymdownx.arithmatex',
         'toc'
     ]
 )
