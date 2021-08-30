@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.admin.widgets import AdminTextareaWidget
 from posts.models import Post
 # from pagedown.widgets import AdminPagedownWidget
+# from martor.widgets import AdminMartorWidget
+
 
 class AdminTextAreaPaste(AdminTextareaWidget):
     class Media:
@@ -27,9 +29,10 @@ class PostAdmin(admin.ModelAdmin):
     # formfield_overrides = {
     #     models.TextField: {'widget': AdminPagedownWidget },
     # }
-    formfield_overrides = {
-        models.TextField: {'widget': AdminTextAreaPaste },
-    }
+    # formfield_overrides = {
+    #     models.TextField: {'widget': AdminTextAreaPaste },
+    #     # models.TextField: {'widget': AdminMartorWidget},
+    # }
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'author':

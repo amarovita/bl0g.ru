@@ -28,5 +28,6 @@ urlpatterns = [
     path('filer/', include('filer.urls')),
     path('', HomePage.as_view()),
     path('post/<slug:slug>/', PostDetail.as_view()),
+    path('martor/', include('martor.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
