@@ -1,13 +1,14 @@
-from django.views.generic import ListView
-from django.views.generic import DetailView
 from django.db.models import Q
-# from django.shortcuts import render
+from django.views.generic import DetailView
+from django.views.generic import ListView
+
 from posts.models import Post
 
 
 class HomePage(ListView):
     model = Post
     paginate_by = 10
+
     def get_queryset(self):
         qs = super().get_queryset()
         if self.request.user.is_authenticated:

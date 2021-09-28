@@ -30,4 +30,3 @@ urlpatterns = [
     path('post/<slug:slug>/', PostDetail.as_view()),
     path('martor/', include('martor.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

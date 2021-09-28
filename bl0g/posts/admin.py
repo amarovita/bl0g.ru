@@ -1,9 +1,6 @@
 from django.contrib import admin
-from django.db import models
 from django.contrib.admin.widgets import AdminTextareaWidget
 from posts.models import Post
-# from pagedown.widgets import AdminPagedownWidget
-# from martor.widgets import AdminMartorWidget
 
 
 class AdminTextAreaPaste(AdminTextareaWidget):
@@ -11,6 +8,7 @@ class AdminTextAreaPaste(AdminTextareaWidget):
         js = [
             'paste.js',
         ]
+
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

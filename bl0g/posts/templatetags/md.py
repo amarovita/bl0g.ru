@@ -19,6 +19,7 @@ _md = Markdown(
     ]
 )
 
+
 @register.filter
 def brief(txt, size=1024):
     res = ''
