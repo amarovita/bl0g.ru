@@ -1,5 +1,8 @@
+from typing import Any
 from django.contrib import admin
 from django.contrib.admin.widgets import AdminTextareaWidget
+from django.db.models.query import QuerySet
+from django.http.request import HttpRequest
 from posts.models import Post
 
 
@@ -37,6 +40,11 @@ class PostAdmin(admin.ModelAdmin):
             kwargs['initial'] = request.user.id
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+    def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
+        if request.user.is_superuser:
+            return super().get_queryset(request)
+        else:
+            return super().get_queryset(request).filter(author=request.user)
     # def save_model(self, request, obj, form, change):
     #     if not obj.id:
     #         if not obj.author:
